@@ -63,7 +63,6 @@ outer.right =      10
 [mode.main.binding]
 ctrl-alt-cmd-m = ['mode alt']
 
-
 ctrl-cmd-g = 'exec-and-forget APP_NAME="Arc" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
 ctrl-cmd-i = 'exec-and-forget APP_NAME="Alacritty" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
 ctrl-cmd-s = 'exec-and-forget APP_NAME="Slack" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
