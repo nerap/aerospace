@@ -63,6 +63,7 @@ outer.right =      10
 [mode.main.binding]
 ctrl-alt-cmd-m = ['mode alt']
 
+# Open or focus applications
 ctrl-cmd-g = 'exec-and-forget APP_NAME="Arc" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
 ctrl-cmd-i = 'exec-and-forget APP_NAME="Alacritty" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
 ctrl-cmd-s = 'exec-and-forget APP_NAME="Slack" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
@@ -71,15 +72,10 @@ ctrl-cmd-n = 'exec-and-forget APP_NAME="Notion" && (aerospace focus --window-id 
 ctrl-cmd-l = 'exec-and-forget APP_NAME="Linear" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
 ctrl-cmd-o = 'exec-and-forget APP_NAME="Obsidian" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
 
-# ctrl-alt-cmd-h = ['focus --boundaries-action stop left', 'move-mouse window-force-center']
-# ctrl-alt-cmd-j = ['focus --boundaries-action stop down', 'move-mouse window-force-center']
-# ctrl-alt-cmd-k = ['focus --boundaries-action stop up', 'move-mouse window-force-center']
-# ctrl-alt-cmd-l = ['focus --boundaries-action stop right', 'move-mouse window-force-center']
-# ctrl-alt-cmd-u = 'workspace prev'
-# ctrl-alt-cmd-i = 'workspace next'
-# ctrl-alt-cmd-p = ['focus-monitor prev', 'move-mouse window-force-center']
-# ctrl-alt-cmd-n = ['focus-monitor next', 'move-mouse window-force-center']
 
+# Swap workspaces
+ctrl-cmd-shift-o = ['workspace prev']
+ctrl-cmd-shift-i = ['workspace next']
 [mode.alt.binding]
 # ctrl-alt-cmd-space = ['mode main']
 space = ['mode main']
