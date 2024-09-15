@@ -249,7 +249,7 @@ if.app-name-regex-substring = 'Arc|Simulator'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Linear'
+if.app-name-regex-substring = 'Linear|Notion'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
