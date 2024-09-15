@@ -61,7 +61,15 @@ outer.right =      10
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 [mode.main.binding]
-ctrl-alt-cmd-space = ['mode alt']
+ctrl-alt-cmd-m = ['mode alt']
+
+
+ctrl-cmd-g = 'exec-and-forget APP_NAME="Arc" && (aerospace focus --window-id "$(aerospace list-windows --all | grep $APP_NAME | cut -d "|" -f 1 | cut -d " " -f 1)" || open -n /Applications/$APP_NAME.app)'
+ctrl-cmd-i = 'exec-and-forget APP_NAME="Alacritty" && (aerospace focus --window-id "$(aerospace list-windows --all | grep $APP_NAME | cut -d "|" -f 1 | cut -d " " -f 1)" || open -n /Applications/$APP_NAME.app)'
+ctrl-cmd-s = 'exec-and-forget APP_NAME="Slack" && (aerospace focus --window-id "$(aerospace list-windows --all | grep $APP_NAME | cut -d "|" -f 1 | cut -d " " -f 1)" || open -n /Applications/$APP_NAME.app)'
+ctrl-cmd-n = 'exec-and-forget APP_NAME="Notion" && (aerospace focus --window-id "$(aerospace list-windows --all | grep $APP_NAME | cut -d "|" -f 1 | cut -d " " -f 1)" || open -n /Applications/$APP_NAME.app)'
+ctrl-cmd-l = 'exec-and-forget APP_NAME="Linear" && (aerospace focus --window-id "$(aerospace list-windows --all | grep $APP_NAME | cut -d "|" -f 1 | cut -d " " -f 1)" || open -n /Applications/$APP_NAME.app)'
+ctrl-cmd-o = 'exec-and-forget APP_NAME="Obsidian" && (aerospace focus --window-id "$(aerospace list-windows --all | grep $APP_NAME | cut -d "|" -f 1 | cut -d " " -f 1)" || open -n /Applications/$APP_NAME.app)'
 
 # ctrl-alt-cmd-h = ['focus --boundaries-action stop left', 'move-mouse window-force-center']
 # ctrl-alt-cmd-j = ['focus --boundaries-action stop down', 'move-mouse window-force-center']
@@ -81,6 +89,7 @@ backtick = ['reload-config', 'mode main']
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+# Create a binding to open or focus Arc window
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 slash = 'layout horizontal vertical'
@@ -236,11 +245,15 @@ shift-j = ['move-node-to-monitor next']
 # run = 'layout floating'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Code - Insiders|Warp|Xcode|Simulator'
+if.app-name-regex-substring = 'Alacritty|Terminal|iTerm|Hyper'
+run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Arc|Simulator'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Sublime Merge'
+if.app-name-regex-substring = 'Linear'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
