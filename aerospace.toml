@@ -37,6 +37,17 @@ outer.bottom =     10
 outer.top =        10
 outer.right =      10
 
+[workspace-to-monitor-force-assignment]
+1 = 'main'                       # Main monitor
+2 = 'main'
+3 = 'secondary'
+4 = 'secondary'
+5 = 'secondary'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
+9 = 'secondary'
+
 #
 # Bindings
 #
@@ -237,25 +248,30 @@ shift-j = ['move-node-to-monitor next']
 # Application-specific configurations
 #
 
-# [[on-window-detected]]
-# run = 'layout floating'
+[[on-window-detected]]
+if.app-name-regex-substring = 'League of Legends|Plex'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Alacritty|Terminal|iTerm|Hyper'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Arc|Simulator'
+if.app-name-regex-substring = 'Beekeeper Studio Ultimate'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Linear|Notion'
+if.app-name-regex-substring = 'Arc|Simulator'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Slack|Mailspring|Calendar|zoom.us'
+if.app-name-regex-substring = 'Linear'
 run = ['layout tiling', 'move-node-to-workspace 4']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Signal|Discord|Messages'
+if.app-name-regex-substring = 'Notion'
 run = ['layout tiling', 'move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Slack|Mailspring|Calendar|zoom.us|Signal|Discord|Messages'
+run = ['layout tiling', 'move-node-to-workspace 6']
