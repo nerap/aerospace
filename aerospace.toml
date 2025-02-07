@@ -15,6 +15,9 @@ key-mapping.preset = 'qwerty'
 # You can set 0 to disable the padding feature
 accordion-padding = 8
 
+# Default start
+start-at-login = true
+
 # Mouse follows focus when focused monitor changes
 # Drop it from your config, if you don't like this behavior
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
@@ -75,14 +78,17 @@ outer.right =      10
 ctrl-alt-cmd-m = ['mode alt']
 
 # Open or focus applications
-ctrl-cmd-g = 'exec-and-forget APP_NAME="Arc" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
-ctrl-cmd-i = 'exec-and-forget APP_NAME="Alacritty" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
-ctrl-cmd-s = 'exec-and-forget APP_NAME="Slack" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
-ctrl-cmd-d = 'exec-and-forget APP_NAME="Discord" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
-ctrl-cmd-n = 'exec-and-forget APP_NAME="Notion" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
-ctrl-cmd-l = 'exec-and-forget APP_NAME="Linear" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
-ctrl-cmd-o = 'exec-and-forget APP_NAME="Obsidian" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open -n /Applications/$APP_NAME.app)'
+ctrl-cmd-g = 'exec-and-forget APP_NAME="Arc" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-i = 'exec-and-forget APP_NAME="Alacritty" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-s = 'exec-and-forget APP_NAME="Slack" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-d = 'exec-and-forget APP_NAME="DBeaver" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-m = 'exec-and-forget APP_NAME="Discord" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-n = 'exec-and-forget APP_NAME="Notion" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-l = 'exec-and-forget APP_NAME="Linear" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-o = 'exec-and-forget APP_NAME="Obsidian" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 
+# Open ALL
+ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Linear") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
 
 # Swap workspaces
 ctrl-cmd-shift-o = ['workspace prev']
@@ -199,57 +205,13 @@ t = ['layout tiling']
 #
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-r =  'mode resize'
-semicolon = 'mode spacial'
-w = 'mode workspace'
-
-#
-# Resize Mode
-#
-
-[mode.resize.binding]
-# ctrl-alt-cmd-space = ['mode binding']
-space = 'mode main'
-esc = 'mode alt'
-r = 'mode alt'
-h = ['resize width -64']
-j = ['resize height -64']
-k = ['resize height +64']
-l = ['resize width +64']
-shift-h = ['resize width -8']
-shift-j = ['resize height -8']
-shift-k = ['resize height +8']
-shift-l = ['resize width +8']
-
-[mode.spacial.binding]
-# ctrl-alt-cmd-space = ['mode special']
-space = 'mode main'
-esc = 'mode alt'
-h = ['join-with left', 'mode alt']
-j = ['join-with down', 'mode alt']
-k = ['join-with up', 'mode alt']
-l = ['join-with right', 'mode alt']
-
-[mode.workspace.binding]
-# ctrl-alt-cmd-space = ['mode workspace']
-space = 'mode main'
-esc = 'mode alt'
-w = 'mode alt'
-h = ['workspace prev', 'move-mouse window-force-center']
-l = ['workspace next', 'move-mouse window-force-center']
-j = ['focus-monitor next', 'move-mouse window-force-center']
-k = ['focus-monitor prev', 'move-mouse window-force-center']
-shift-h = ['move-node-to-workspace prev']
-shift-l = ['move-node-to-workspace next']
-shift-k = ['move-node-to-monitor prev']
-shift-j = ['move-node-to-monitor next']
 
 #
 # Application-specific configurations
 #
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'League of Legends|Plex'
+if.app-name-regex-substring = 'League of Legends|Plex|Simulator'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -257,7 +219,7 @@ if.app-name-regex-substring = 'Alacritty|Terminal|iTerm|Hyper'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Beekeeper Studio Ultimate'
+if.app-name-regex-substring = 'DBeaver'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
@@ -267,6 +229,10 @@ run = ['layout tiling', 'move-node-to-workspace 3']
 [[on-window-detected]]
 if.app-name-regex-substring = 'Linear'
 run = ['layout tiling', 'move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Notion'
+run = ['layout tiling', 'move-node-to-workspace 5']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Notion'
