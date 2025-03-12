@@ -241,3 +241,7 @@ run = ['layout tiling', 'move-node-to-workspace 5']
 [[on-window-detected]]
 if.app-name-regex-substring = 'Slack|Mailspring|Calendar|zoom.us|Signal|Discord|Messages'
 run = ['layout tiling', 'move-node-to-workspace 6']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Docker'
+run = ['layout tiling', 'move-node-to-workspace 7']
