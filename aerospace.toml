@@ -86,9 +86,11 @@ ctrl-cmd-m = 'exec-and-forget APP_NAME="Discord" && (aerospace focus --window-id
 ctrl-cmd-n = 'exec-and-forget APP_NAME="Notion" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-l = 'exec-and-forget APP_NAME="Linear" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-o = 'exec-and-forget APP_NAME="Obsidian" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-c = 'exec-and-forget APP_NAME="Claude" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-b = 'exec-and-forget APP_NAME="Bruno" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 
 # Open ALL
-ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Linear") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
+ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Linear" "Discord" "Bruno" "Claude") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
 
 # Swap workspaces
 ctrl-cmd-shift-o = ['workspace prev']
@@ -235,13 +237,13 @@ if.app-name-regex-substring = 'Notion'
 run = ['layout tiling', 'move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Notion'
-run = ['layout tiling', 'move-node-to-workspace 5']
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'Slack|Mailspring|Calendar|zoom.us|Signal|Discord|Messages'
 run = ['layout tiling', 'move-node-to-workspace 6']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Docker'
+if.app-name-regex-substring = 'Docker|Claude'
 run = ['layout tiling', 'move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Bruno'
+run = ['layout tiling', 'move-node-to-workspace 8']
