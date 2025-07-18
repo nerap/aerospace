@@ -247,3 +247,7 @@ run = ['layout tiling', 'move-node-to-workspace 7']
 [[on-window-detected]]
 if.app-name-regex-substring = 'Bruno'
 run = ['layout tiling', 'move-node-to-workspace 8']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Obsidian'
+run = ['layout tiling', 'move-node-to-workspace 8']
