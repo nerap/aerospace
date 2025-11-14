@@ -78,7 +78,7 @@ outer.right =      10
 ctrl-alt-cmd-m = ['mode alt']
 
 # Open or focus applications
-ctrl-cmd-g = 'exec-and-forget APP_NAME="Zen" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-g = 'exec-and-forget APP_NAME="Arc" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-i = 'exec-and-forget APP_NAME="Alacritty" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-s = 'exec-and-forget APP_NAME="Slack" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-d = 'exec-and-forget APP_NAME="DBeaver" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
@@ -90,7 +90,7 @@ ctrl-cmd-c = 'exec-and-forget APP_NAME="Claude" && (aerospace focus --window-id 
 ctrl-cmd-b = 'exec-and-forget APP_NAME="Bruno" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 
 # Open ALL
-ctrl-alt-cmd-w = 'exec-and-forget APPS=("Zen" "Alacritty" "Slack" "DBeaver" "Linear" "Discord" "Bruno" "Claude") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
+ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Linear" "Discord" "Bruno" "Claude") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
 
 # Swap workspaces
 ctrl-cmd-shift-o = ['workspace prev']
@@ -104,7 +104,7 @@ backtick = ['reload-config', 'mode main']
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
-# Create a binding to open or focus Zen window
+# Create a binding to open or focus Arc window
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 slash = 'layout horizontal vertical'
@@ -225,7 +225,7 @@ if.app-name-regex-substring = 'DBeaver'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Zen|Simulator'
+if.app-name-regex-substring = 'Arc|Simulator'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
