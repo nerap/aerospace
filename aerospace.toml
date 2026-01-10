@@ -50,6 +50,7 @@ outer.right =      10
 7 = 'secondary'
 8 = 'secondary'
 9 = 'secondary'
+10 = 'secondary'
 
 #
 # Bindings
@@ -95,6 +96,7 @@ ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Lin
 # Swap workspaces
 ctrl-cmd-shift-o = ['workspace prev']
 ctrl-cmd-shift-i = ['workspace next']
+
 [mode.alt.binding]
 # ctrl-alt-cmd-space = ['mode main']
 space = ['mode main']
@@ -250,4 +252,8 @@ run = ['layout tiling', 'move-node-to-workspace 8']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
-run = ['layout tiling', 'move-node-to-workspace 8']
+run = ['layout tiling', 'move-node-to-workspace 9']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Google Chrome'
+run = ['layout tiling', 'move-node-to-workspace 10']
