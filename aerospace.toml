@@ -89,6 +89,7 @@ ctrl-cmd-l = 'exec-and-forget APP_NAME="Linear" && (aerospace focus --window-id 
 ctrl-cmd-o = 'exec-and-forget APP_NAME="Obsidian" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-c = 'exec-and-forget APP_NAME="Claude" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-b = 'exec-and-forget APP_NAME="Bruno" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
+ctrl-cmd-e = 'exec-and-forget APP_NAME="Simulator" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 
 # Open ALL
 ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Linear" "Discord" "Bruno" "Claude") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
@@ -215,7 +216,7 @@ t = ['layout tiling']
 #
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'League of Legends|Plex|Simulator'
+if.app-name-regex-substring = 'League of Legends|Plex|qemu-system-aarch64'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -227,7 +228,7 @@ if.app-name-regex-substring = 'DBeaver'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Arc|Simulator'
+if.app-name-regex-substring = 'Arc'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
@@ -255,5 +256,5 @@ if.app-name-regex-substring = 'Obsidian'
 run = ['layout tiling', 'move-node-to-workspace 9']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Google Chrome'
-run = ['layout tiling', 'move-node-to-workspace 10']
+if.app-name-regex-substring = 'Simulator'
+run = ['layout floating', 'move-node-to-workspace 10']
