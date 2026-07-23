@@ -91,6 +91,10 @@ ctrl-cmd-c = 'exec-and-forget APP_NAME="Claude" && (aerospace focus --window-id 
 ctrl-cmd-b = 'exec-and-forget APP_NAME="Bruno" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 ctrl-cmd-e = 'exec-and-forget APP_NAME="Simulator" && (aerospace focus --window-id "$(aerospace list-windows --all | awk -F"|" "/$APP_NAME/ {print \$1}" | awk "{print \$1}")" || open /Applications/$APP_NAME.app)'
 
+# Screenshot a region -> ship to the devbox -> path on the clipboard.
+# Then Cmd+V into Claude over SSH. (p = paste-picture-to-box)
+ctrl-cmd-p = 'exec-and-forget /Users/nerap/bin/.local/scripts/snip2box devbox'
+
 # Open ALL
 ctrl-alt-cmd-w = 'exec-and-forget APPS=("Arc" "Alacritty" "Slack" "DBeaver" "Linear" "Discord" "Bruno" "Claude") && for APP in "${APPS[@]}"; do open /Applications/"$APP".app; done'
 
